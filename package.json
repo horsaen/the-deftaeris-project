@@ -1,6 +1,7 @@
 {
-  "name": "boiler",
+  "name": "the-deftaeris-project",
   "version": "0.1.0",
+  "author": "horsaen",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,14 +10,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@meilisearch/instant-meilisearch": "^0.12.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
+    "algoliasearch": "^4.17.0",
+    "axios": "^1.3.5",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "mongoose": "^7.0.4",
     "next": "13.3.0",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-instantsearch-dom": "^6.39.1",
+    "swr": "^2.1.3",
     "typescript": "5.0.4"
   }
 }
