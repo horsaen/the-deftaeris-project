@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Hello from '@/components/Hello'
 import styles from '@/styles/Home.module.css'
 
 import { FaSearch } from 'react-icons/fa'
@@ -38,7 +39,7 @@ export default function Home() {
       <main>
         <div className={styles.landing}>
           <div className={styles.title}>
-            <span>{`Finding language learning resources shouldn't be difficult or costly`}</span>
+            <span className={styles.heading}>{`Finding language learning resources shouldn't be difficult or costly.`}</span>
             <span>{`We compile the best resources for as many languages as we possibly can, so anyone, no matter what language they're trying to learn, can find quality resources :)`}</span>
             <div className={styles.buttonContainer}>
               <a onClick={scrollToLanguage} href="#languageContainer">
@@ -51,7 +52,7 @@ export default function Home() {
           </div>
         </div>
         <div id="languageContainer" className={styles.languageContainer}>
-
+          <Hello />
         </div>
       </main>
     </>
