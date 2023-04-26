@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 
 import { FaSearch } from 'react-icons/fa'
 
-// this is so dumb
+// allows for smooth scrolling to anchor
 const scrollToLanguage = (e) => {
   e.preventDefault();
   const element = document.getElementById('languageContainer');
