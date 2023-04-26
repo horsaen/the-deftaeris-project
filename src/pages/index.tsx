@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Hello from '@/components/Hello'
 import styles from '@/styles/Home.module.css'
 
 import { FaSearch } from 'react-icons/fa'
@@ -18,7 +17,7 @@ const scrollToLanguage = (e) => {
   }
 };
 
-function LanguageCard(props) {
+function LanguageCard (props) {
   return (
     <div>
       <span>{props.emoji}</span>
@@ -50,9 +49,14 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <div className={styles.hello}>
+            <span>hello bonjour привет cześć 안녕하세요 xin chào こんにちは سلام sawubona hej مرحبا здравейте שלום ciao 你好 jambo halo สวัสดี szia नमस्ते :)</span>
+          </div>
         </div>
         <div id="languageContainer" className={styles.languageContainer}>
-          <Hello />
+          <div className={styles.languageSearch}>
+            <input placeholder='Search for a language: (en-US, english)' />
+          </div>
         </div>
       </main>
     </>
