@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container form {
+    display: flex;
+    flex-direction: column;
+    width: 425px;
+}
+.container form input,
+.container form button {
+    all: unset;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+.container form button {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.container form button:hover {
+    transition: all 0.2s ease;
+    background-color: #fff;
+    color: #1d212a;
+}
+.container a {
+    color: #fff;
+}

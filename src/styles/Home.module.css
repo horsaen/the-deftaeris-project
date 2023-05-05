@@ -55,3 +55,21 @@
     border: 2px solid #fff;
     border-radius: 8px;
 }
+.languageCards {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.languageCards a {
+    color: #fff;
+    text-decoration: none;
+}
+.languageCardContainer {
+    display: flex;
+    align-items: center;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}

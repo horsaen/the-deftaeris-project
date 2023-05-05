@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 import styles from '@/styles/Home.module.css'
+import axios from 'axios'
+import useSWR from 'swr'
+const fetcher = url => axios.get(url).then(res => res.data)
 
 import { FaSearch } from 'react-icons/fa'
 
@@ -17,16 +21,18 @@ const scrollToLanguage = (e) => {
   }
 };
 
+
 function LanguageCard (props) {
   return (
-    <div>
+    <Link href={props.code} className={styles.languageCardContainer}>
       <span>{props.emoji}</span>
       <span>{props.language}</span>
-    </div>
+    </Link>
   )
 }
 
 export default function Home() {
+  const { data } = useSWR('/api/language', fetcher)
   return (
     <>
       <Head>
@@ -35,6 +41,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
       <main>
         <div className={styles.landing}>
           <div className={styles.title}>
@@ -56,6 +63,11 @@ export default function Home() {
         <div id="languageContainer" className={styles.languageContainer}>
           <div className={styles.languageSearch}>
             <input placeholder='Search for a language: (en-US, english)' />
+          </div>
+          <div className={styles.languageCards}>
+            {data && data.map((data, i) => (
+              <LanguageCard key={i} emoji={data.emoji} language={data.name} code={data.code} />
+            ))}
           </div>
         </div>
       </main>
