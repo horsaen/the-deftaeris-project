@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    margin: 0 10px;
+}
+.navbar a {
+    color: #fff;
+}
+.right {
+    position: absolute;
+    right: 20px;
+}
