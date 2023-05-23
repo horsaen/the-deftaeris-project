@@ -22,6 +22,7 @@ export default function SignUp () {
                     <button type="submit">Sign Up</button>
                 </form>
                 <div>
+                    <span>{"Aleady have an account? "}</span>
                     <Link href='sign-in'>
                         <span>Sign In</span>
                     </Link>

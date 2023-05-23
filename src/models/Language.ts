@@ -23,6 +23,7 @@ const ResourceSchema = new mongoose.Schema({
         about: {type: String},
         link: {type: String},
         free: {type: Boolean, required: true},
+        type: {type: String, required: true},
         date: {type: Date}
         // i know there's more to add to this
     }]

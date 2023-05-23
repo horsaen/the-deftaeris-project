@@ -14,13 +14,28 @@ const resources = [
 ]
 
 function LanguageCard (props) {
+    // apparently i can't nest this as a component
+    var type: string | undefined;
+    switch (props.type) {
+        case 'book':
+            type = '📒 Book'
+            break
+        case 'general':
+            type = 'General'
+            break
+        default:
+            type = ''
+            break
+    }
+    var free: string | undefined
+    if(props.free == true){free = "Free"} else {free = "Paid"}
     return (
         <Link href={"/" + props.langId + "/" + props.name} className={styles.card}>
             <div className={styles.cardTitle}>
                 <span>{props.name}</span>
             </div>
             <div className={styles.cardText}>
-                <span>{props.about}</span>
+                <span>{free + " | " + type}</span>
             </div>
         </Link>
     )
@@ -49,11 +64,19 @@ export default function LanguageCollection() {
                             <span>About</span>
                         </div>
                         <div className={styles.initialText}>
-                            <span>These general resources are meant to be general tools which help one in their language learning journey, including multi-use apps, umbrella tools, and just simply general resources</span>
+                            <span>{data?.about}</span>
                         </div>
                     </div>
                     {data && data.resource.map((language, i) => (
-                        <LanguageCard key={i} langId={languageID} name={language.name} about={language.about} link={language.link} />
+                        <LanguageCard
+                            key={i}
+                            langId={languageID}
+                            name={language.name}
+                            about={language.about}
+                            type={language.type}
+                            free={language.free}
+                            link={language.link}
+                        />
                     ))}
                 </div>
             </div>

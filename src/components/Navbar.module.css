@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    margin: 0 10px;
+    background-color: #fff;
 }
 .navbar a {
     color: #fff;

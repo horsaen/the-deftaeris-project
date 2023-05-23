@@ -1,6 +1,29 @@
 .content {
-    margin: 10px;
+    position: relative;
+    height: 100vh;
+    margin-left: 10px;
 }
 .title {
     font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+.titleDate {
+    font-size: 11px;
+    color: #bbbbbb;
+}
+.toLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toLink a {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
 }
