@@ -1,13 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import styles from '@/styles/Home.module.css'
 import axios from 'axios'
 import useSWR from 'swr'
 const fetcher = url => axios.get(url).then(res => res.data)
 
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaDiscord } from 'react-icons/fa'
 
 // allows for smooth scrolling to anchor
 const scrollToLanguage = (e) => {
@@ -25,14 +26,18 @@ const scrollToLanguage = (e) => {
 function LanguageCard (props) {
   return (
     <Link href={props.code} className={styles.languageCardContainer}>
-      <span>{props.emoji}</span>
-      <span>{props.language}</span>
+      <span style={{paddingRight: 10, fontSize: 30}}>{props.emoji}</span>
+      <div>
+        <span>{props.language}</span>
+        <span>{props.code}</span>
+      </div>
     </Link>
   )
 }
 
 export default function Home() {
   const { data } = useSWR('/api/language', fetcher)
+  const [searchQuery, setSearchQuery] = useState('')
   return (
     <>
       <Head>
@@ -41,7 +46,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         <div className={styles.landing}>
           <div className={styles.title}>
@@ -51,9 +56,13 @@ export default function Home() {
               <a onClick={scrollToLanguage} href="#languageContainer">
                 Learn More
               </a>
-              <Link href="sign-up">
+              {/* i don't need this yet */}
+              {/* <Link href="sign-up">
                 <span>Sign Up</span>
-              </Link>
+              </Link> */}
+              <a href="https://discord.gg/9sw5wBh84s">
+                <span><FaDiscord /></span>
+              </a>
             </div>
           </div>
           <div className={styles.hello}>
@@ -62,11 +71,19 @@ export default function Home() {
         </div>
         <div id="languageContainer" className={styles.languageContainer}>
           <div className={styles.languageSearch}>
-            <input placeholder='Search for a language: (en-US, english)' />
+            <input placeholder='Search for a language: (en-US, english)' onChange={(e) => setSearchQuery(e.target.value)} />
           </div>
           <div className={styles.languageCards}>
-            {data && data.map((data, i) => (
+            {/* {data && data.map((data, i) => (
               <LanguageCard key={i} emoji={data.emoji} language={data.name} code={data.code} />
+            ))} */}
+            {data?.filter((item) => {
+                return searchQuery.toLowerCase() === ''
+                  ? item
+                  : item.name.toLowerCase().includes(searchQuery) || item.code.toLowerCase().includes(searchQuery)
+              })
+              .map((item, i: number) => (
+                <LanguageCard key={i} emoji={item.emoji} language={item.name} code={item.code} />
             ))}
           </div>
         </div>
