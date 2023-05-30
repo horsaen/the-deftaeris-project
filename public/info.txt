@@ -1,0 +1,24 @@
+! use desktop version if on mobile !
+
+#    $$\                                                                   
+#    $$ |                                                                  
+#    $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$$\  $$$$$$\   $$$$$$\  $$$$$$$\  
+#    $$  __$$\ $$  __$$\ $$  __$$\ $$  _____| \____$$\ $$  __$$\ $$  __$$\ 
+#    $$ |  $$ |$$ /  $$ |$$ |  \__|\$$$$$$\   $$$$$$$ |$$$$$$$$ |$$ |  $$ |
+#    $$ |  $$ |$$ |  $$ |$$ |       \____$$\ $$  __$$ |$$   ____|$$ |  $$ |
+#    $$ |  $$ |\$$$$$$  |$$ |      $$$$$$$  |\$$$$$$$ |\$$$$$$$\ $$ |  $$ |
+#    \__|  \__| \______/ \__|      \_______/  \_______| \_______|\__|  \__|
+#
+#    work by horsaën, learn more at https://horsaen.com/
+
+-- content removal --
+
+any content removal requests can be sent from the original owner or copyright holders to atealltheglue@protonmail.com
+
+-- data collection --
+
+this project collects only the information collected by the umami project @ https://github.com/umami-software/umami
+
+this data is uniquely used for internal purposes specifically to monitor site usage metrics
+
+under no circumstances will site usage metrics be shared to third parties
