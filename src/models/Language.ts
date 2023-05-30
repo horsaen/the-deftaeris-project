@@ -24,8 +24,8 @@ const ResourceSchema = new mongoose.Schema({
         link: {type: String},
         free: {type: Boolean, required: true},
         type: {type: String, required: true},
-        date: {type: Date}
-        // i know there's more to add to this
+        date: {type: Date},
+        image: {type: String}
     }]
 })
 

@@ -1,9 +1,16 @@
 .navbar {
+    height: 50px;
     display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     width: 100vw;
-    background-color: #fff;
+    background-color: #000000a6;
+    backdrop-filter: blur(2px);
+    z-index: 999;
+}
+.navbar:nth-child(1) div {
+    margin-left: 20px;
 }
 .navbar a {
     color: #fff;

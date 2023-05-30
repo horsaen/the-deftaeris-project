@@ -9,8 +9,9 @@ export default function Navbar () {
             </div>
             <div className={styles.right}>
                 <Link href='/search'>Search</Link>
-                <span> | </span>
-                <Link href='/sign-in'>Sign In</Link>
+                {/* don't need these yet::: */}
+                {/* <span> | </span>
+                <Link href='/sign-in'>Sign In</Link> */}
             </div>
         </div>
     )

@@ -53,16 +53,12 @@ export default function Home() {
             <span className={styles.heading}>{`Finding language learning resources shouldn't be difficult or costly.`}</span>
             <span>{`We compile the best resources for as many languages as we possibly can, so anyone, no matter what language they're trying to learn, can find quality resources :)`}</span>
             <div className={styles.buttonContainer}>
-              <a onClick={scrollToLanguage} href="#languageContainer">
-                Learn More
-              </a>
-              {/* i don't need this yet */}
-              {/* <Link href="sign-up">
-                <span>Sign Up</span>
-              </Link> */}
-              <a href="https://discord.gg/9sw5wBh84s">
-                <span><FaDiscord /></span>
-              </a>
+                <a onClick={scrollToLanguage} href="#languageContainer">
+                  Learn More
+                </a>
+                <a rel="noreferrer" target='_blank' href="https://discord.gg/9sw5wBh84s">
+                  <FaDiscord />
+                </a>
             </div>
           </div>
           <div className={styles.hello}>

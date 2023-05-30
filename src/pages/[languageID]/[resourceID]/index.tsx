@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import axios from 'axios'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
@@ -7,6 +8,52 @@ import { useRouter } from 'next/router'
 import styles from './Resource.module.css'
 
 const fetcher = url => axios.get(url).then(res => res.data)
+
+// i can't think of a better way to do this
+function CheckPaid (props) {
+    var type: string | undefined
+    switch (props.free) {
+        case true:
+            type = "Free"
+            break
+        case false:
+            type = "Paid"
+            break
+    }
+    return (
+        <span>{"Price: " + type}</span>
+    )
+}
+
+function CheckType (props) {
+    var type: string | undefined;
+    switch (props.type) {
+        case 'book':
+            type = '📒 Book'
+            break
+        case 'general':
+            type = 'General'
+            break
+        default:
+            type = ''
+            break
+    }
+    return (
+        <span>{"Type: " + type}</span>
+    )
+}
+
+// simple not found thing, i don't feel like doing anything more complicated
+function NotFoundHandler () {
+    return (
+        <div className={styles.notFound} >
+            <span>{"Oh no! There's no resouce for this language :("}</span>
+            <Link href="/">
+                Go back?
+            </Link>
+        </div>
+    )
+}
 
 export default function Resource () {
     const router = useRouter()
@@ -22,13 +69,26 @@ export default function Resource () {
             <Head>
                 <title>{resource?.name + ' | The Deftaeris Project'}</title>
             </Head>
+            {error ? <NotFoundHandler /> : null }
             <div className={styles.content}>
                 <div className={styles.title}>
                     <span>{data?.emoji + " | " + resource?.name}</span>
                     <span className={styles.titleDate}>{"Added " + date.toDateString()}</span>
                 </div>
-                <div className={styles.about}>
-
+                <div className={styles.main}>
+                    <div id="main">
+                        <div className={styles.about}>
+                            <span>{resource?.about}</span>
+                        </div>
+                        <div className={styles.divider}></div>
+                        <div className={styles.sidebar}>
+                            <CheckPaid free={resource?.free} />
+                            <CheckType type={resource?.type} />
+                        </div>
+                    </div>
+                    <div id="image">
+                        <Image alt="" src={'/api/language/vn/' + resource?.name + '/file'} width={550} height={350} />
+                    </div>
                 </div>
                 {resource?.link ?
                     <div className={styles.toLink}>

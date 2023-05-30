@@ -1,7 +1,6 @@
 .landing {
     height: 100vh;
     max-height: 100vh;
-    width: 100vw;
     display: flex;
     align-items: center;
 }
@@ -20,15 +19,24 @@
 }
 .buttonContainer {
     padding-top: 2rem;
+    display: flex;
+}
+.buttonContainer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
 }
 .buttonContainer a:nth-child(1) {
     margin-right: 10px;
 }
-.buttonContainer a {
-    padding: 10px;
-    color: #fff;
-    border-radius: 10px;
-    border: 2px solid #fff;
+.buttonContainer a:nth-child(2) {
+    font-size: 23px;
 }
 .hello {
     font-size: 32px;
@@ -41,10 +49,9 @@
 .languageContainer {
     max-height: 100vh;
     height: 100vh;
-    width: 100vw;
 }
 .languageSearch {
-    padding-top: 35px;
+    padding-top: 60px;
     display: flex;
     justify-content: center;
 }
@@ -72,4 +79,14 @@
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
+}
+.languageCardContainer div {
+    display: flex;
+    flex-direction: column;
+}
+.languageCardContainer div span:nth-child(1) {
+    font-weight: 700;
+}
+.languageCardContainer div span:nth-child(2) {
+    color: #bbb;
 }

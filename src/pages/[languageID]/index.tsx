@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import axios from 'axios'
+import { useState } from 'react'
 import useSWR from 'swr'
 import { useRouter } from "next/router"
 
@@ -41,33 +42,51 @@ function LanguageCard (props) {
     )
 }
 
+// simple not found thing, i don't feel like doing anything more complicated
+function NotFoundHandler () {
+    return (
+        <div className={styles.notFound} >
+            <span>{"Oh no! There's no resouce for this language :("}</span>
+            <Link href="/">
+                Go back?
+            </Link>
+        </div>
+    )
+}
+
 export default function LanguageCollection() {
     const router = useRouter()
     const { languageID } = router.query
     const { data, error } = useSWR(languageID ? '/api/language/' + languageID : null , fetcher)
+    const [searchQuery, setSearchQuery] = useState('')
+    var balls = data?.resource
     return (
         <>
             <Head>
                 <title>{data?.name + " | The Deftaeris Project"}</title>
             </Head>
-            <Navbar />
+            {error ? <NotFoundHandler /> : null }
+            {/* <Navbar /> */}
             <div className={styles.page}>
                 <div className={styles.title}>
-                    <span>{data?.name + " Resources"}</span>
+                    <span>{data?.name}</span>
+                </div>
+                <div className={styles.info}>
+                    <span>{data?.about + " "}<a rel="noreferrer" target='_blank' href={"https://en.wikipedia.org/wiki/" + data?.name + "_language"}>Learn More</a></span>
                 </div>
                 <div className={styles.search}>
-                    <input placeholder='Search for a resource:' />
+                    <input placeholder='Search for a resource:' onChange={(e) => setSearchQuery(e.target.value)} />
                 </div>
                 <div className={styles.content}>
-                    <div className={styles.initialCard}>
+                    {/* <div className={styles.initialCard}>
                         <div className={styles.initialTitle}>
                             <span>About</span>
                         </div>
                         <div className={styles.initialText}>
                             <span>{data?.about}</span>
                         </div>
-                    </div>
-                    {data && data.resource.map((language, i) => (
+                    </div> */}
+                    {/* {data && data.resource.map((language, i) => (
                         <LanguageCard
                             key={i}
                             langId={languageID}
@@ -77,7 +96,23 @@ export default function LanguageCollection() {
                             free={language.free}
                             link={language.link}
                         />
-                    ))}
+                    ))} */}
+                    {balls?.filter((item) => {
+                        return searchQuery.toLowerCase() === ''
+                        ? item
+                        : item.name.toLowerCase().includes(searchQuery)
+                        })
+                        .map((item, i: number) => (
+                            <LanguageCard
+                                key={i}
+                                langId={languageID}
+                                name={item.name}
+                                about={item.about}
+                                type={item.type}
+                                free={item.free}
+                                link={item.link}
+                            />
+                        ))}
                 </div>
             </div>
         </>
