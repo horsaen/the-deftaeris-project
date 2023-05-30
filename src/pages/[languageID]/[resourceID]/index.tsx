@@ -72,9 +72,18 @@ export default function Resource () {
             {error ? <NotFoundHandler /> : null }
             <div className={styles.content}>
                 <div className={styles.title}>
-                    <span>{data?.emoji + " | " + resource?.name}</span>
-                    <span className={styles.titleDate}>{"Added " + date.toDateString()}</span>
+                    <div className={styles.titleContainer}>
+                        <div className={styles.emoji}>
+                            <span>{data?.emoji}</span>
+                            <span> | </span>
+                        </div>
+                        <div className={styles.titleName}>
+                            <span>{resource?.name}</span>
+                        </div>
+                    </div>
                 </div>
+                {/* i don't know why it does that but i don' t really care it looks better like this */}
+                <span className={styles.titleDate}>{"Added " + date.toDateString()}</span>
                 <div className={styles.main}>
                     <div id="main">
                         <div className={styles.about}>
@@ -86,8 +95,12 @@ export default function Resource () {
                             <CheckType type={resource?.type} />
                         </div>
                     </div>
-                    <div id="image">
-                        <Image alt="" src={'/api/language/vn/' + resource?.name + '/file'} width={550} height={350} />
+                    <div className={styles.image}>
+                        {/* this is so dumb */}
+                        {resource?.name !== undefined ?
+                        <Image alt="" src={'/api/language/vn/' + resource?.name + '/file'} fill sizes="100vw"/>
+                        : null
+                        }
                     </div>
                 </div>
                 {resource?.link ?

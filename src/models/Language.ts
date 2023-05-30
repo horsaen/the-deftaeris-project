@@ -20,6 +20,7 @@ const ResourceSchema = new mongoose.Schema({
     },
     resource: [{
         name: {type: String},
+        shortAbout: {type: String, maxLength: 250},
         about: {type: String},
         link: {type: String},
         free: {type: Boolean, required: true},

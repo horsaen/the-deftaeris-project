@@ -38,6 +38,7 @@ function LanguageCard (props) {
             <div className={styles.cardText}>
                 <span>{free + " | " + type}</span>
             </div>
+            <span className={styles.cardAbout}>{props.about}</span>
         </Link>
     )
 }
@@ -107,7 +108,7 @@ export default function LanguageCollection() {
                                 key={i}
                                 langId={languageID}
                                 name={item.name}
-                                about={item.about}
+                                about={item.shortAbout}
                                 type={item.type}
                                 free={item.free}
                                 link={item.link}
