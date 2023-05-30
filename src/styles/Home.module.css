@@ -90,3 +90,25 @@
 .languageCardContainer div span:nth-child(2) {
     color: #bbb;
 }
+
+@media (max-width: 768px) {
+    .title {
+        padding-left: 10px;
+        width: 250px;
+    }
+    .heading {
+        font-size: 25px;
+    }
+    .hello {
+        display: none;
+    }
+    .languageSearch {
+        padding-top: 10px;
+        margin: 0 10px;
+    }
+    .languageCardContainer {
+        width: 150px;
+        height: 45px;
+        padding: 10px 5px;
+    }
+}
