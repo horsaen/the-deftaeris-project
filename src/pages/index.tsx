@@ -7,7 +7,10 @@ import Footer from '@/components/Footer'
 import styles from '@/styles/Home.module.css'
 import axios from 'axios'
 import useSWR from 'swr'
+
 const fetcher = url => axios.get(url).then(res => res.data)
+
+import { FaDiscord } from 'react-icons/fa'
 
 // allows for smooth scrolling to anchor
 const scrollToLanguage = (e) => {
@@ -56,6 +59,9 @@ export default function Home() {
             <div className={styles.buttonContainer}>
                 <a onClick={scrollToLanguage} href="#languageContainer">
                   Learn More
+                </a>
+                <a rel="noreferrer" target='_blank' href="https://discord.gg/9sw5wBh84s">
+                  <FaDiscord />
                 </a>
             </div>
           </div>
