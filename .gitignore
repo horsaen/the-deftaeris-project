@@ -34,5 +34,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-src/pages/api/language/[id]/[resource]/file/*
-!src/pages/api/language/[id]/[resource]/file/index.ts
+src/pages/api/language/\[id\]/\[resource\]/file/*
+!src/pages/api/language/\[id\]/\[resource\]/file/index.ts
