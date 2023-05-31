@@ -18,6 +18,9 @@ const ResourceSchema = new mongoose.Schema({
         type: String,
         maxLength: 250
     },
+    keywords: {
+        type: String
+    },
     resource: [{
         name: {type: String},
         shortAbout: {type: String, maxLength: 250},
@@ -26,7 +29,8 @@ const ResourceSchema = new mongoose.Schema({
         free: {type: Boolean, required: true},
         type: {type: String, required: true},
         date: {type: Date},
-        image: {type: String}
+        image: {type: String},
+        keywords: {type: String}
     }]
 })
 

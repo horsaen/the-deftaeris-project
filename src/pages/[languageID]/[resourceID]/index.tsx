@@ -68,6 +68,8 @@ export default function Resource () {
         <>
             <Head>
                 <title>{resource?.name + ' | The Deftaeris Project'}</title>
+                <meta name="description" content={resource?.shortAbout} />
+                <meta name="keywords" content={resource?.keywords} />
             </Head>
             {error ? <NotFoundHandler /> : null }
             <div className={styles.content}>
@@ -98,7 +100,7 @@ export default function Resource () {
                     <div className={styles.image}>
                         {/* this is so dumb */}
                         {resource?.name !== undefined ?
-                        <Image alt="" src={'/api/language/vn/' + resource?.name + '/file'} fill sizes="100vw"/>
+                        <Image alt="image" src={'/api/language/vn/' + resource?.name + '/file'} fill sizes="100vw"/>
                         : null
                         }
                     </div>

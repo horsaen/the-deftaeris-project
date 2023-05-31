@@ -65,6 +65,8 @@ export default function LanguageCollection() {
         <>
             <Head>
                 <title>{data?.name + " | The Deftaeris Project"}</title>
+                <meta name="description" content={data?.about} />
+                <meta name="keywords" content={data?.keywords} />
             </Head>
             {error ? <NotFoundHandler /> : null }
             {/* <Navbar /> */}

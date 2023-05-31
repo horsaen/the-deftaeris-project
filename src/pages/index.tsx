@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 import styles from '@/styles/Home.module.css'
 import axios from 'axios'
 import useSWR from 'swr'
@@ -41,8 +42,10 @@ export default function Home() {
       <Head>
         <title>The Deftaeris Project</title>
         <meta name="description" content="The Deftaeris Project is an open source repository of language learning materials, open to everyone." />
+        <meta name="keywords" content="language, language learning, language learning list, language repository, language list, language resources, language resource list, open source, human language resouces" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="LDphbFfD_r3JqFTmKAPUgLMrAgV8BXzIN_KLAA_8o4g" />
       </Head>
       {/* <Navbar /> */}
       <main>
@@ -79,6 +82,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }
