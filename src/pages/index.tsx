@@ -60,7 +60,7 @@ export default function Home() {
                 <a onClick={scrollToLanguage} href="#languageContainer">
                   Learn More
                 </a>
-                <a rel="noreferrer" target='_blank' href="https://discord.gg/9sw5wBh84s">
+                <a id='discord' data-umami-event="Discord" rel="noreferrer" target='_blank' href="https://discord.gg/9sw5wBh84s">
                   <FaDiscord />
                 </a>
             </div>
