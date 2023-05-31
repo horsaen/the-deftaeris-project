@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /sign-*
+Disallow: /api/*
+Disallow: /search
+Disallow: /info.txt
