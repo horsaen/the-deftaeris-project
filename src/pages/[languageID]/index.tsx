@@ -75,7 +75,7 @@ export default function LanguageCollection() {
                     <span>{data?.name}</span>
                 </div>
                 <div className={styles.info}>
-                    <span>{data?.about + " "}<a rel="noreferrer" target='_blank' href={"https://en.wikipedia.org/wiki/" + data?.name + "_language"}>Learn More</a></span>
+                    <span>{data?.about + " "}{data?.code !== "gen" ? <a rel="noreferrer" target='_blank' href={"https://en.wikipedia.org/wiki/" + data?.name + "_language"}>Learn More</a> : null }</span>
                 </div>
                 <div className={styles.search}>
                     <input placeholder='Search for a resource:' onChange={(e) => setSearchQuery(e.target.value)} />
